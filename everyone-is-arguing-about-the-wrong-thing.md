@@ -8,7 +8,7 @@
 
 ---
 
-On Saturday, September 12, 2026, Dario Amodei published roughly thirty-five hundred words arguing that his own industry was moving too fast. Not a pause — he is explicit about the distinction — but a deliberate slowing of the rate at which frontier models get more capable. Sam Altman agreed the same day. Elon Musk agreed in three words: "Dario is right."
+On Saturday, September 12, 2026, Dario Amodei, who runs Anthropic, published roughly thirty-five hundred words arguing that his own industry was moving too fast. Not a pause — he is explicit about the distinction — but a deliberate slowing of the rate at which frontier models get more capable. Sam Altman, who runs OpenAI, agreed the same day. Elon Musk agreed in three words: "Dario is right." Three days after that, Congress left for the midterms without holding a vote.
 
 That consensus is hard to take at face value.
 
@@ -48,7 +48,7 @@ That quietly destroys the most popular cynical explanation of the whole affair. 
 
 If motives can't be read from essays, they can sometimes be read from bills.
 
-In early 2026 the Pentagon sought to renegotiate its contract with Anthropic to permit use of Claude "for all lawful purposes" — dropping the company's red lines against mass domestic surveillance and autonomous weapons targeting. Anthropic refused. The administration directed every federal agency to phase the company out, and the Defense Secretary designated it a "supply chain risk," a label never before applied to an American firm. OpenAI took a comparable contract with softer, self-amendable protections.
+In early 2026 the Pentagon sought to renegotiate its contract with Anthropic to permit use of Claude, the company's AI model, "for all lawful purposes" — dropping the company's red lines against mass domestic surveillance and autonomous weapons targeting. Anthropic refused. The administration directed every federal agency to phase the company out, and the Defense Secretary designated it a "supply chain risk," a label never before applied to an American firm. OpenAI took a comparable contract with softer, self-amendable protections.
 
 In August, a federal judge ruled the designation unlawful on three grounds at once, finding the government had acted "based on a desire to make a public example." A second suit continues.
 
