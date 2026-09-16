@@ -1,8 +1,23 @@
 # Frontier AI Governance — September 2026
 
-An account of one week in September 2026, when the people building frontier AI
-asked to be slowed down, the president called it a hoax, and the argument turned
-out to be about something other than what everyone said it was about.
+On 9 September 2026, Anthropic's alignment science lead answered a colleague who
+had just resigned over safety, and did it on the record: "we really do earnestly
+believe AI could kill all humans." He put the odds above 10% within the decade.
+
+Three days later his chief executive asked the entire industry to slow down. Sam
+Altman agreed the same afternoon; Elon Musk agreed in three words. Both companies
+were weeks from the largest initial public offerings in American history.
+
+Two days after that, the president called the danger a hoax. The day after that,
+Congress went home for the midterms.
+
+The week was reported as safety against acceleration. It was not. The argument
+underneath is concentration against diffusion — whether frontier capability
+should sit with a few firms that can be inspected, or be made cheap enough that
+nobody owns it. The two most serious safety arguments of the week land on
+opposite sides of that question. One came from an American chief executive, the
+other from a kernel engineer at a Chinese lab, and neither has answered the
+other.
 
 **Joseph Catanzarite**, with Claude Opus 5 (extra-high reasoning effort, extended
 thinking enabled) as research partner.

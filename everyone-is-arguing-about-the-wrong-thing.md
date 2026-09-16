@@ -8,7 +8,7 @@
 
 ---
 
-On Saturday, September 12, 2026, Dario Amodei published roughly thirty-five hundred words arguing that his own industry was moving too fast. Not a pause — he is explicit about the distinction — but a deliberate slowing of the rate at which frontier models get more capable. Sam Altman agreed the next day. Elon Musk agreed in three words: "Dario is right."
+On Saturday, September 12, 2026, Dario Amodei published roughly thirty-five hundred words arguing that his own industry was moving too fast. Not a pause — he is explicit about the distinction — but a deliberate slowing of the rate at which frontier models get more capable. Sam Altman agreed the same day. Elon Musk agreed in three words: "Dario is right."
 
 That consensus is hard to take at face value.
 
