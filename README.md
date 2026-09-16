@@ -43,10 +43,12 @@ The report marks its own weak points rather than smoothing them.
 **⚠** flags a claim that carries a real limitation: a source that could not be
 retrieved directly, a figure that circulates in two versions, an inference the
 report is making rather than a finding it is reporting. There are 29 of them.
-That number is not an apology. Several are permanent — they mark places where
-the evidence is structurally unavailable, such as incident reports that
-California law seals until 2027, or the capability of models that no outside
-party is permitted to test.
+
+Several will never be cleared, because the evidence behind them is sealed rather
+than merely missing. California law keeps frontier-lab incident reports out of
+public records until 2027. Anthropic's most capable model has been withheld from
+the one national safety institute equipped to test it. No amount of further
+research reaches either.
 
 Where sources conflict, both figures appear with a note on what each measures.
 Where the report is reasoning rather than reporting, it says so.
