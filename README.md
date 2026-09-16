@@ -1,0 +1,75 @@
+# Frontier AI Governance — September 2026
+
+An account of one week in September 2026, when the people building frontier AI
+asked to be slowed down, the president called it a hoax, and the argument turned
+out to be about something other than what everyone said it was about.
+
+**Joseph Catanzarite**, with Claude Opus 5 (extra-high reasoning effort, extended
+thinking enabled) as research partner.
+
+---
+
+## What is here
+
+| File | What it is |
+|---|---|
+| [`everyone-is-arguing-about-the-wrong-thing.md`](everyone-is-arguing-about-the-wrong-thing.md) | The essay. ~2,200 words, no apparatus. Start here. |
+| [`frontier-ai-governance-september-2026.md`](frontier-ai-governance-september-2026.md) | The full report. ~15,400 words, 100 endnotes. |
+| [`sources-ossoff-september-2026.md`](sources-ossoff-september-2026.md) | Provenance record for the Ossoff material, including what could not be verified. |
+| `*.pdf` | Typeset editions of both, with the figures. |
+
+The essay and the report are not a summary and its source. They were written
+separately, for different readers, because one document cannot serve both.
+
+## How to read the markers
+
+The report marks its own weak points rather than smoothing them.
+
+**⚠** flags a claim that carries a real limitation: a source that could not be
+retrieved directly, a figure that circulates in two versions, an inference the
+report is making rather than a finding it is reporting. There are 29 of them.
+That number is not an apology. Several are permanent — they mark places where
+the evidence is structurally unavailable, such as incident reports that
+California law seals until 2027, or the capability of models that no outside
+party is permitted to test.
+
+Where sources conflict, both figures appear with a note on what each measures.
+Where the report is reasoning rather than reporting, it says so.
+
+## Method
+
+Claims are tied to sources in the endnotes; the body carries the claim and the
+note carries the source and the caveat. Primary records are used where they
+exist, which in practice meant going to the Federal Election Commission's Form
+13 filings rather than trusting secondary coverage — that check corrected the
+attribution of a $1 million inaugural donation from a company to an individual,
+and confirmed a $50,000 contribution the report would otherwise have reported
+only on a watchdog's word.
+
+Several claims changed under checking rather than being confirmed by it. A
+widely repeated quotation turned out to be an outlet's characterisation and not
+the speaker's words. A benchmark placement being used as evidence about
+open-weight models turned out to describe a model whose weights had not been
+released. Those corrections are in the text, with notes warning anyone
+re-reporting them.
+
+## Standing disclosure
+
+The research partner on this project is a model made by Anthropic, and Anthropic
+is one of the companies under analysis. This matters in specific places rather
+than generally, and the report names them where they arise. The tribute-channel
+finding about Anthropic — that it gave $50,000 to the Trump-Vance Inaugural
+Committee — was produced by an Anthropic model researching a claim about
+Anthropic, and has since been confirmed against the primary filing. The bounded
+negative across the other channels has not been independently confirmed, and the
+report says so.
+
+## Status
+
+Written to the state of the record on 16 September 2026. The week it describes
+closed with Congress rising for the midterms; nothing in it has been updated for
+events after that date.
+
+## Licence
+
+Text © Joseph Catanzarite. Please link rather than republish in full.
