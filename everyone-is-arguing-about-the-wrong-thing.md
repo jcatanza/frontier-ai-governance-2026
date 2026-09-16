@@ -22,7 +22,7 @@ The obvious reading is that an industry discovered its conscience. The obvious c
 
 The debate gets framed as safety versus acceleration — the cautious against the reckless. That framing survives about ten minutes of contact with the actual positions.
 
-Around the same week, a kernel engineer at the Chinese lab DeepSeek published an essay of his own — in Chinese, and read here in translation, which is worth saying before summarising a man's argument for him. Shengyu Liu wrote the main attention kernel for DeepSeek's V4.1 model, which is to say he does the kind of low-level optimization work that was supposed to be the last thing automated. He describes watching AI close the distance on his own craft inside a single year, and expects to be matched within six to twelve months. He keeps working, because his competitors will keep working regardless of what he decides.
+Around the same week, a kernel engineer at the Chinese lab DeepSeek published an essay of his own — in Chinese, and read here in translation, which is worth saying before summarizing a man's argument for him. Shengyu Liu wrote the main attention kernel for DeepSeek's V4.1 model, which is to say he does the kind of low-level optimization work that was supposed to be the last thing automated. He describes watching AI close the distance on his own craft inside a single year, and expects to be matched within six to twelve months. He keeps working, because his competitors will keep working regardless of what he decides.
 
 Liu is not an accelerationist. He thinks frontier AI is dangerous. He simply disagrees with Amodei about *which* danger dominates — and that disagreement generates opposite policies.
 
@@ -34,9 +34,7 @@ The axis they are actually on is concentration versus diffusion, and it is the o
 
 ## Nobody outside the building can check any of this
 
-The frontier is going dark to outside measurement, through at least four mechanisms that arrived separately and compound.
-
-Anthropic released two models on September 1, 2026. Fable 5.1 is public. Mythos 5.1 is restricted, and was withheld from pre-release testing by Britain's AI Security Institute — the first such exclusion on record, of an allied government's own safety body. The detail that matters is smaller than the exclusion: Fable and Mythos are the same underlying model, and Fable simply carries additional safeguards. Every benchmark number anyone outside Anthropic has ever seen for this generation is a Fable number.
+The frontier is going dark to outside measurement, through at least four mechanisms that arrived separately and compound. Anthropic released two models on September 1, 2026. Fable 5.1 is public. Mythos 5.1 is restricted, and was withheld from pre-release testing by Britain's AI Security Institute — the first such exclusion on record, of an allied government's own safety body. The detail that matters is smaller than the exclusion: Fable and Mythos are the same underlying model, and Fable simply carries additional safeguards. Every benchmark number anyone outside Anthropic has ever seen for this generation is a Fable number.
 
 Meanwhile, California's Senate Bill 53 — the most substantial artificial-intelligence statute in the country — defines a "frontier developer" as one training above 10²⁶ operations, and leaves that determination to the developer. There is no public register of which models cross the line, and none can be built. The law's incident reports are exempt from public-records requests, with anonymized summaries not due until January 2027.
 
@@ -82,9 +80,7 @@ Two days later, several hundred people met in Washington under a banner that fit
 
 ## What to watch
 
-Strip the week down and four things hold.
-
-The loudest calls for restraint came from the firms setting the pace, in the same weeks they pursued the largest public offerings in history, from a government that rejects restraint while collecting money from the industry it regulates. Nobody in the story is a neutral party to their own regulation, and that is the only frame that fits all the conduct at once.
+Strip the week down and four things hold. The loudest calls for restraint came from the firms setting the pace, in the same weeks they pursued the largest public offerings in history, from a government that rejects restraint while collecting money from the industry it regulates. Nobody in the story is a neutral party to their own regulation, and that is the only frame that fits all the conduct at once.
 
 The chokepoint that makes any of this governable is tightening on the creation side and eroding on the diffusion side, and every proposal on the table addresses the half that is tightening. Compute concentration makes inspections feasible. Open weights and distillation make containment nearly impossible. Amodei's package is well matched to the easy half.
 
