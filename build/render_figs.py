@@ -32,7 +32,8 @@ figure.plate figcaption{font-size:21px;max-width:64ch;line-height:1.55;}
 .led-when{font-size:16px !important;}
 </style></head><body>@@FIG@@</body></html>"""
 for i, fig in enumerate(figs, 1):
-    p = OUT + f"fig{i}.html"
+    os.makedirs(paths.SCRATCH, exist_ok=True)
+    p = os.path.join(paths.SCRATCH, f"fig{i}.html")   # scratch, not figures/
     io.open(p, "w", encoding="utf-8").write(SHELL.replace("@@CSS@@", css).replace("@@FIG@@", fig))
     png = OUT + f"figure-{i}.png"
     if os.path.exists(png): os.remove(png)
