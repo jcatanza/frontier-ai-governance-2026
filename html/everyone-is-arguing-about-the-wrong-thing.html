@@ -1,0 +1,318 @@
+<title>Arguing About the Wrong Thing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#14151d; --paper:#e9ebe3; --paper-raised:#f4f5ef;
+    --signal:#b9721b; --petrol:#1d5c63; --redline:#a8402f; --muted:#5b5d6b;
+    --rule: rgba(20,21,29,0.16); --rule-strong: rgba(20,21,29,0.32);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e9ebe3; --paper:#101116; --paper-raised:#191a21;
+      --signal:#e3a24e; --petrol:#5cb2ba; --redline:#e2695a; --muted:#a3a5b8;
+      --rule: rgba(233,235,227,0.16); --rule-strong: rgba(233,235,227,0.32);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e9ebe3; --paper:#101116; --paper-raised:#191a21;
+    --signal:#e3a24e; --petrol:#5cb2ba; --redline:#e2695a; --muted:#a3a5b8;
+    --rule: rgba(233,235,227,0.16); --rule-strong: rgba(233,235,227,0.32);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Newsreader', Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:20px;
+    padding-block: max(28px, env(safe-area-inset-top,0px)) max(60px, env(safe-area-inset-bottom,0px));
+  }
+  ::selection{ background: var(--signal); color: var(--paper-raised); }
+  .wrap{ max-width:700px; margin:0 auto; }
+  h1,h2,h3,.disp{ font-family:'Fraunces', Georgia, serif; text-wrap:balance; }
+  .mono{ font-family:'IBM Plex Mono','Courier New',monospace; }
+  .cap{ text-transform:uppercase; letter-spacing:.09em; }
+
+  .masthead{ padding-block:8px 30px; border-bottom:2px solid var(--ink); margin-bottom:34px; }
+  .kicker{ font-size:.72rem; color:var(--muted); margin:0 0 14px; }
+  .kicker .dot{ color:var(--redline); }
+  h1.title{ font-size:clamp(2.1rem,6vw,3.15rem); font-weight:600; line-height:1.04; letter-spacing:-.01em; margin:0 0 18px; }
+  .subtitle{ font-size:1.05rem; line-height:1.5; color:var(--muted); max-width:60ch; margin:0 0 20px; font-style:italic; }
+  .byline{ font-size:.95rem; margin:0 0 6px; }
+  .byline b{ font-weight:600; }
+  .revnote{ font-size:.86rem; color:var(--muted); line-height:1.55; border-left:3px solid var(--rule-strong); padding-left:14px; margin-top:16px; }
+
+  .cast{ margin:30px 0 44px; }
+  .cast-label{ font-size:.72rem; color:var(--muted); margin-bottom:14px; }
+  .cast-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:14px 10px; }
+  .card{ text-align:center; }
+  .badge{ width:52px; height:52px; border-radius:50%; margin:0 auto 8px; display:flex; align-items:center; justify-content:center;
+          font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.1rem; color:var(--paper-raised); }
+  .card .name{ font-size:.82rem; font-weight:600; line-height:1.25; }
+  .card .role{ font-size:.66rem; color:var(--muted); line-height:1.3; margin-top:2px; }
+
+  article p{ font-size:1.13rem; line-height:1.72; margin:0 0 1.15em; }
+  article h2{ font-size:clamp(1.5rem,4vw,1.9rem); font-weight:600; line-height:1.15; margin:2.6em 0 .2em; }
+  .eyebrow{ display:block; font-size:.72rem; color:var(--petrol); margin-bottom:.5em; font-weight:600; }
+
+  sup.fn{ line-height:0; font-size:.68em; }
+  sup.fn a{ color:var(--petrol); text-decoration:none; padding:0 1px; font-family:'IBM Plex Mono',monospace; }
+  sup.fn a:hover, sup.fn a:focus{ text-decoration:underline; }
+
+  blockquote.pull{ margin:1.6em 0; padding:.2em 0 .2em 22px; border-left:3px solid var(--signal); }
+  blockquote.pull p{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500; font-size:1.4rem; line-height:1.32; margin:0 0 .3em; color:var(--ink); }
+  blockquote.pull cite{ font-size:.74rem; color:var(--muted); font-style:normal; }
+
+  figure.plate{ margin:2em -4px 2.2em; padding:22px 18px 16px; background:var(--paper-raised); border-top:2px solid var(--ink); border-bottom:1px solid var(--rule); }
+  figure.plate svg{ display:block; width:100%; height:auto; max-width:620px; margin:0 auto; }
+  figure.plate figcaption{ font-size:.78rem; color:var(--muted); text-align:center; margin-top:12px; line-height:1.5; max-width:56ch; margin-inline:auto; }
+  figure.plate figcaption b{ color:var(--ink); font-weight:600; }
+  .label-sm{ font-size:9px; } .label-md{ font-size:11px; }
+  .figfoot{ font-size:.72rem; color:var(--muted); margin:.2em 0 1.6em; }
+
+  .statcards{ display:flex; gap:14px; flex-wrap:wrap; margin:1.4em 0; }
+  .statcard{ flex:1 1 220px; border:1px solid var(--rule-strong); padding:16px 18px; background:var(--paper-raised); }
+  .statcard h4{ margin:0 0 10px; font-family:'Fraunces',Georgia,serif; font-size:1.05rem; font-weight:600; }
+  .statrow{ display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-top:1px solid var(--rule); font-size:.88rem; }
+  .statrow:first-of-type{ border-top:none; }
+  .statrow .k{ color:var(--muted); }
+  .statrow .v{ font-variant-numeric:tabular-nums; font-weight:600; text-align:right; }
+
+  .polgrid{ margin:1.4em 0 .4em; border:1px solid var(--rule-strong); }
+  .polrow{ display:grid; grid-template-columns:1.3fr 1fr 1fr; border-top:1px solid var(--rule); }
+  .polrow:first-child{ border-top:none; background:var(--ink); color:var(--paper-raised); }
+  .polhead{ padding:9px 12px; font-size:.72rem; font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:.06em; }
+  .polcell{ padding:11px 12px; font-size:.82rem; line-height:1.4; border-left:1px solid var(--rule); }
+  .polcell:first-child{ border-left:none; font-size:.86rem; }
+  .pill{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.66rem; padding:2px 7px; border-radius:2px; margin-bottom:5px; font-weight:600; letter-spacing:.04em; }
+  .pill.yes{ background:color-mix(in srgb, var(--petrol) 22%, transparent); color:var(--petrol); }
+  .pill.no{ background:color-mix(in srgb, var(--redline) 18%, transparent); color:var(--redline); }
+  .pill.maybe{ background:color-mix(in srgb, var(--signal) 22%, transparent); color:var(--signal); }
+
+  .barchart{ margin:1.2em 0 .4em; }
+  .barrow{ display:grid; grid-template-columns:118px 1fr 74px; align-items:center; gap:10px; margin-bottom:9px; }
+  .barrow .lbl{ font-size:.78rem; text-align:right; }
+  .bartrack{ position:relative; height:22px; }
+  .grid-v{ position:absolute; top:-4px; bottom:-4px; width:1px; background:var(--rule); }
+  .barfill{ position:absolute; top:0; left:0; height:100%; background:var(--redline); border-radius:0 3px 3px 0; }
+  .barrow .val{ font-family:'IBM Plex Mono',monospace; font-size:.78rem; font-variant-numeric:tabular-nums; }
+  .axislabels{ display:grid; grid-template-columns:118px 1fr 74px; margin-top:2px; }
+  .axisline{ position:relative; height:14px; }
+  .axistick{ position:absolute; top:0; font-size:.66rem; color:var(--muted); transform:translateX(-50%); }
+
+  .eyerow{ display:flex; justify-content:space-around; gap:10px; margin:1.2em 0; text-align:center; flex-wrap:wrap; }
+  .eyeitem{ flex:1 1 140px; }
+  .eyeitem svg{ width:88px; height:60px; }
+  .eyeitem .t{ font-weight:600; font-size:.86rem; margin-top:4px; }
+  .eyeitem .d{ font-size:.72rem; color:var(--muted); }
+
+  .notes-wrap{ margin-top:3.4em; padding-top:1.8em; border-top:2px solid var(--ink); }
+  .notes-wrap h2{ font-family:'Fraunces',Georgia,serif; font-size:1.5rem; font-weight:600; margin:0 0 .5em; }
+  .notes-intro{ font-size:.86rem; color:var(--muted); line-height:1.6; margin-bottom:1.4em; }
+  ol.notes{ padding-left:1.4em; margin:0; }
+  ol.notes li{ font-size:.82rem; line-height:1.58; color:var(--muted); margin-bottom:.85em; }
+  ol.notes li::marker{ font-family:'IBM Plex Mono',monospace; color:var(--petrol); font-size:.78rem; }
+  .backref{ color:var(--petrol); text-decoration:none; font-size:.9em; }
+  .backref:hover{ text-decoration:underline; }
+  .movement{ margin:3.2em 0 .4em; padding-top:1.2em; border-top:2px solid var(--ink);
+    font-size:.76rem; font-weight:600; color:var(--redline); letter-spacing:.14em; }
+  a{ color:var(--petrol); }
+  :focus-visible{ outline:2px solid var(--petrol); outline-offset:2px; }
+
+  @media (max-width:520px){
+    .polrow{ grid-template-columns:1fr; }
+    .polcell{ border-left:none; border-top:1px solid var(--rule); }
+    .polrow:first-child .polcell:first-child{ display:none; }
+    .barrow, .axislabels{ grid-template-columns:84px 1fr 60px; }
+  }
+</style>
+<style>
+  :root{ --c-amodei:#0891b2; --c-liu:#b9721b; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --c-amodei:#1093ae; --c-liu:#c2812f; }
+  }
+  :root[data-theme="dark"]{ --c-amodei:#1093ae; --c-liu:#c2812f; }
+
+  .inv{ margin:.5em 0 .2em; }
+  .inv-key{ display:flex; gap:20px; justify-content:flex-end; font-size:.66rem;
+            letter-spacing:.09em; color:var(--muted); margin-bottom:12px; }
+  .inv-key i{ display:inline-block; width:11px; height:11px; border-radius:50%;
+              margin-right:7px; vertical-align:-1px; }
+  .inv-key .sw-a{ background:var(--c-amodei); }
+  .inv-key .sw-b{ background:var(--c-liu); }
+  .inv-scale, .inv-row{ display:grid; grid-template-columns:47% 1fr; gap:18px; align-items:center; }
+  .inv-scale{ font-size:.62rem; letter-spacing:.11em; color:var(--muted); margin-bottom:6px; }
+  .inv-ends{ display:flex; justify-content:space-between; }
+  .inv-row{ padding:10px 0; border-top:1px solid var(--rule); }
+  .inv-pol{ font-size:.87rem; line-height:1.34; }
+  .inv-track{ position:relative; height:18px; }
+  .inv-rail{ position:absolute; top:8px; left:8px; right:8px; height:2px;
+             background:repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 34%, transparent) 0 7px, transparent 7px 14px); }
+  .inv-mid{ position:absolute; top:0; left:50%; width:1px; height:18px;
+            background:color-mix(in srgb, var(--ink) 22%, transparent); }
+  .inv-dot{ position:absolute; top:1px; width:16px; height:16px; border-radius:50%;
+            box-shadow:0 0 0 2px var(--paper-raised); }
+  .inv-dot.a{ background:var(--c-amodei); } .inv-dot.b{ background:var(--c-liu); }
+  .inv-note{ font-size:.7rem; color:var(--muted); margin-top:10px; font-style:italic; }
+
+  .ledger{ margin:.5em 0 .2em; border:1px solid var(--rule-strong); }
+  .led-open{ padding:10px 13px; background:color-mix(in srgb, var(--petrol) 12%, transparent);
+             font-size:.78rem; line-height:1.45; border-bottom:1px solid var(--rule-strong); }
+  .led-open b{ color:var(--petrol); letter-spacing:.09em; font-size:.66rem; margin-right:9px; }
+  .led-row{ display:grid; grid-template-columns:1fr 1.5fr .52fr; border-top:1px solid var(--rule); }
+  .led-row > span{ padding:11px 13px; font-size:.82rem; line-height:1.42; border-left:1px solid var(--rule); }
+  .led-row > span:first-child{ border-left:none; font-weight:600; }
+  .led-head{ border-top:none; background:var(--ink); }
+  .led-head > span{ color:var(--paper-raised); font-size:.64rem; letter-spacing:.09em; padding-block:8px; font-weight:600; }
+  .led-when{ font-family:'IBM Plex Mono',monospace; font-size:.72rem !important; color:var(--redline); font-weight:600; }
+  @media (max-width:520px){
+    .led-row{ grid-template-columns:1fr; }
+    .led-row > span{ border-left:none; border-top:1px solid var(--rule); }
+    .led-head{ display:none; }
+    .inv-scale, .inv-row{ grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+<style>
+  article p:first-of-type{ font-size:1.22rem; line-height:1.6; }
+  .masthead + figure.plate{ border-top:none; margin-top:0; }
+  .standfirst{ font-size:.9rem; color:var(--muted); line-height:1.6; border-left:3px solid var(--signal); padding-left:14px; margin-top:18px; }
+  h1.title{ font-size:clamp(2.3rem,7vw,3.6rem); }
+</style>
+<div class="wrap">
+<div class="masthead">
+<p class="kicker mono cap">Frontier AI Governance <span class="dot">·</span> Essay <span class="dot">·</span> September 2026</p>
+<h1 class="title">Everyone Is Arguing About the Wrong Thing</h1>
+<p class="subtitle">In one week of September 2026, the people building artificial intelligence asked to be slowed down, the president called it a hoax, and a kernel engineer in China explained why both of them might be missing the point</p>
+<p class="byline"><strong>Joseph Catanzarite</strong>, with Claude Opus 5 (extra-high reasoning effort, extended thinking enabled) as research partner.</p>
+<p class="standfirst">The full report carries the citations, the contested readings, and the claims that remain unverified.</p>
+</div>
+<figure class="plate">
+<svg viewBox="0 0 820 260" role="img" aria-label="Two cars racing at full speed, each driver waving a hand-lettered SLOW DOWN sign out the window.">
+<line x1="10" y1="222" x2="810" y2="222" stroke="var(--rule)" stroke-width="2" stroke-dasharray="10 8"/>
+<g transform="translate(30,128)">
+<line x1="-8" y1="42" x2="-42" y2="42" stroke="var(--petrol)" stroke-width="5" stroke-linecap="round"/>
+<line x1="-8" y1="54" x2="-52" y2="54" stroke="var(--petrol)" stroke-width="5" stroke-linecap="round"/>
+<line x1="-8" y1="66" x2="-38" y2="66" stroke="var(--petrol)" stroke-width="5" stroke-linecap="round"/>
+<rect x="0" y="32" width="150" height="32" rx="9" fill="var(--petrol)"/>
+<rect x="34" y="8" width="66" height="28" rx="8" fill="var(--petrol)"/>
+<rect x="40" y="13" width="26" height="17" rx="3" fill="var(--paper-raised)"/>
+<circle cx="32" cy="66" r="15" fill="var(--ink)"/><circle cx="32" cy="66" r="6" fill="var(--paper-raised)"/>
+<circle cx="118" cy="66" r="15" fill="var(--ink)"/><circle cx="118" cy="66" r="6" fill="var(--paper-raised)"/>
+<line x1="96" y1="14" x2="128" y2="-34" stroke="var(--ink)" stroke-width="3"/>
+<rect x="102" y="-66" width="114" height="36" rx="4" fill="var(--paper-raised)" stroke="var(--ink)" stroke-width="2"/>
+<text x="159" y="-43" text-anchor="middle" class="mono label-md" fill="var(--ink)" font-weight="600">SLOW DOWN</text>
+</g>
+<g transform="translate(430,96)">
+<line x1="-8" y1="42" x2="-42" y2="42" stroke="var(--signal)" stroke-width="5" stroke-linecap="round"/>
+<line x1="-8" y1="54" x2="-52" y2="54" stroke="var(--signal)" stroke-width="5" stroke-linecap="round"/>
+<line x1="-8" y1="66" x2="-38" y2="66" stroke="var(--signal)" stroke-width="5" stroke-linecap="round"/>
+<rect x="0" y="32" width="150" height="32" rx="9" fill="var(--signal)"/>
+<rect x="34" y="8" width="66" height="28" rx="8" fill="var(--signal)"/>
+<rect x="40" y="13" width="26" height="17" rx="3" fill="var(--paper-raised)"/>
+<circle cx="32" cy="66" r="15" fill="var(--ink)"/><circle cx="32" cy="66" r="6" fill="var(--paper-raised)"/>
+<circle cx="118" cy="66" r="15" fill="var(--ink)"/><circle cx="118" cy="66" r="6" fill="var(--paper-raised)"/>
+<line x1="96" y1="14" x2="128" y2="-34" stroke="var(--ink)" stroke-width="3"/>
+<rect x="102" y="-66" width="114" height="36" rx="4" fill="var(--paper-raised)" stroke="var(--ink)" stroke-width="2"/>
+<text x="159" y="-43" text-anchor="middle" class="mono label-md" fill="var(--ink)" font-weight="600">SLOW DOWN</text>
+</g>
+</svg>
+<figcaption>Both companies are racing toward the largest initial public offerings in history. <b>Both chief executives just told the industry to slow down.</b></figcaption>
+</figure>
+<article>
+<p>On Saturday, September 12, 2026, Dario Amodei published roughly thirty-five hundred words arguing that his own industry was moving too fast. Not a pause — he is explicit about the distinction — but a deliberate slowing of the rate at which frontier models get more capable. Sam Altman agreed the same day. Elon Musk agreed in three words: "Dario is right."</p>
+<p>That consensus is hard to take at face value.</p>
+<p>Start with the calendar. Anthropic was weeks from marketing the largest initial public offering in American history, at a valuation approaching $2 trillion, timed to list days before the November midterms. OpenAI had its own filing in a drawer. The men asking the industry to decelerate were, in the same month, asking public investors to price acceleration.</p>
+<p>Then consider what happened four days earlier. A 27-year-old Anthropic researcher named Jacob Coxon resigned, forfeited unvested equity to do it, and posted that neither his employer nor OpenAI was acting responsibly. Anthropic's alignment science lead answered him on the record: "We really do earnestly believe AI could kill all humans," with a personal estimate above 10% within the decade. The essay landed in an argument already under way.</p>
+<figure class="plate">
+<svg viewBox="0 0 900 210" role="img" aria-label="Timeline of the September 2026 cascade from Coxon's resignation on September 8 through the market selloff on September 14.">
+<line x1="40" y1="105" x2="860" y2="105" stroke="var(--rule-strong)" stroke-width="2"/>
+<g class="mono">
+<circle cx="80" cy="105" r="7" fill="var(--petrol)"/>
+<text x="80" y="78" text-anchor="middle" class="label-md" fill="var(--petrol)" font-weight="600">SEPT 8</text>
+<text x="80" y="130" text-anchor="middle" class="label-sm" fill="var(--ink)">Coxon resigns,</text>
+<text x="80" y="144" text-anchor="middle" class="label-sm" fill="var(--ink)">cites the swarm escape</text>
+<circle cx="255" cy="105" r="7" fill="var(--petrol)"/>
+<text x="255" y="78" text-anchor="middle" class="label-md" fill="var(--petrol)" font-weight="600">SEPT 9</text>
+<text x="255" y="130" text-anchor="middle" class="label-sm" fill="var(--ink)">Hubinger: &gt;10%</text>
+<text x="255" y="144" text-anchor="middle" class="label-sm" fill="var(--ink)">risk, this decade</text>
+<circle cx="450" cy="105" r="9" fill="var(--ink)"/>
+<text x="450" y="78" text-anchor="middle" class="label-md" fill="var(--ink)" font-weight="600">SEPT 12</text>
+<text x="450" y="130" text-anchor="middle" class="label-sm" fill="var(--ink)">Amodei publishes;</text>
+<text x="450" y="144" text-anchor="middle" class="label-sm" fill="var(--ink)">Altman, Musk agree</text>
+<circle cx="645" cy="105" r="7" fill="var(--signal)"/>
+<text x="645" y="78" text-anchor="middle" class="label-md" fill="var(--signal)" font-weight="600">SEPT 13–14</text>
+<text x="645" y="130" text-anchor="middle" class="label-sm" fill="var(--ink)">Trump: "whoever</text>
+<text x="645" y="144" text-anchor="middle" class="label-sm" fill="var(--ink)">wins AI wins"</text>
+<circle cx="820" cy="105" r="7" fill="var(--redline)"/>
+<text x="820" y="78" text-anchor="middle" class="label-md" fill="var(--redline)" font-weight="600">SEPT 14</text>
+<text x="820" y="130" text-anchor="middle" class="label-sm" fill="var(--ink)">Asian markets</text>
+<text x="820" y="144" text-anchor="middle" class="label-sm" fill="var(--ink)">sell off</text>
+</g>
+</svg>
+<figcaption>Five days, one cascade. Coxon resigns on the 8th; Congress rises on the 15th.</figcaption>
+</figure>
+<p>The obvious reading is that an industry discovered its conscience. The obvious counter-reading is that an industry discovered a regulatory moat. Both are too clean, and both miss the more interesting problem: almost everyone in this argument is arguing along the wrong axis.</p>
+<h2>Two nightmares, not one</h2>
+<p>The debate gets framed as safety versus acceleration — the cautious against the reckless. That framing survives about ten minutes of contact with the actual positions.</p>
+<p>Around the same week, a kernel engineer at the Chinese lab DeepSeek published an essay of his own — in Chinese, and read here in translation, which is worth saying before summarising a man's argument for him. Shengyu Liu wrote the main attention kernel for DeepSeek's V4.1 model, which is to say he does the kind of low-level optimization work that was supposed to be the last thing automated. He describes watching AI close the distance on his own craft inside a single year, and expects to be matched within six to twelve months. He keeps working, because his competitors will keep working regardless of what he decides.</p>
+<p>Liu is not an accelerationist. He thinks frontier AI is dangerous. He simply disagrees with Amodei about <em>which</em> danger dominates — and that disagreement generates opposite policies.</p>
+<p>Amodei's nightmare is misuse or loss of control, and his remedy requires capability concentrated in a few auditable actors, because you cannot inspect what you cannot locate. Liu's nightmare is a permanent capability aristocracy, and his remedy requires capability cheap and universal, accepting more misuse as the price of preventing a narrow elite from owning the future outright.</p>
+<p>Run the policies and they invert cleanly. Amodei wants inspectors embedded inside the labs; Liu sees unaccountable private authority handpicked by the firms. Amodei wants chip export controls sustained; Liu sees the American lead they produce as the problem itself. Amodei wants a crackdown on distillation — training a cheap model to imitate an expensive one — which is precisely how Chinese labs stay close. Both men have real technical standing. Both are making a safety argument. They are not on the same axis at all.</p>
+<p>The axis they are actually on is concentration versus diffusion, and it is the one nobody in power is debating.</p>
+<figure class="plate">
+<div class="inv">
+<div class="inv-key mono cap"><span><i class="sw-a"></i>Amodei</span><span><i class="sw-b"></i>Liu</span></div>
+<div class="inv-scale mono cap"><span></span><span class="inv-ends"><span>Opposes</span><span>Supports</span></span></div>
+<div class="inv-row"><span class="inv-pol">Outside evaluators embedded in every frontier lab</span><span class="inv-track"><i class="inv-rail"></i><i class="inv-mid"></i><i class="inv-dot b" style="left:0"></i><i class="inv-dot a" style="right:0"></i></span></div>
+<div class="inv-row"><span class="inv-pol">Chip export controls on China, sustained</span><span class="inv-track"><i class="inv-rail"></i><i class="inv-mid"></i><i class="inv-dot b" style="left:0"></i><i class="inv-dot a" style="right:0"></i></span></div>
+<div class="inv-row"><span class="inv-pol">A crackdown on distillation</span><span class="inv-track"><i class="inv-rail"></i><i class="inv-mid"></i><i class="inv-dot b" style="left:0"></i><i class="inv-dot a" style="right:0"></i></span></div>
+<div class="inv-row"><span class="inv-pol">An antitrust waiver so firms can pace together</span><span class="inv-track"><i class="inv-rail"></i><i class="inv-mid"></i><i class="inv-dot b" style="left:0"></i><i class="inv-dot a" style="right:0"></i></span></div>
+<div class="inv-row"><span class="inv-pol">Open-weight release of frontier models</span><span class="inv-track"><i class="inv-rail"></i><i class="inv-mid"></i><i class="inv-dot a" style="left:0"></i><i class="inv-dot b" style="right:0"></i></span></div>
+<p class="inv-note">Liu has never stated a position on SB 53's compute threshold, so it is left off rather than inferred.</p>
+</div>
+<figcaption>Five policies, two men, both arguing from safety. On four of them Amodei supports what Liu opposes; on open weights the poles simply swap. <b>The middle of this chart is empty.</b></figcaption>
+</figure>
+<h2>Nobody outside the building can check any of this</h2>
+<p>The frontier is going dark to outside measurement, through at least four mechanisms that arrived separately and compound.</p>
+<p>Anthropic released two models on September 1, 2026. Fable 5.1 is public. Mythos 5.1 is restricted, and was withheld from pre-release testing by Britain's AI Security Institute — the first such exclusion on record, of an allied government's own safety body. The detail that matters is smaller than the exclusion: Fable and Mythos are the same underlying model, and Fable simply carries additional safeguards. Every benchmark number anyone outside Anthropic has ever seen for this generation is a Fable number.</p>
+<figure class="plate">
+<div class="ledger">
+<div class="led-open"><b class="mono cap">Still public</b>Safety frameworks, model cards, and a transparency report at each deployment — the half of SB 53 the labs already satisfied.</div>
+<div class="led-row led-head mono cap"><span>What outsiders cannot see</span><span>What closes it</span><span>Open again</span></div>
+<div class="led-row"><span>How the strongest model behaves</span><span>Claude Mythos 5.1 was withheld from Britain's AI Security Institute — the first exclusion of an allied government's safety body on record</span><span class="led-when">no date set</span></div>
+<div class="led-row"><span>What the frontier actually scores</span><span>Every public benchmark measures Fable, the deliberately safeguarded twin of the same underlying model</span><span class="led-when">no date set</span></div>
+<div class="led-row"><span>Which models are legally &ldquo;frontier&rdquo;</span><span>SB 53 leaves the 10<sup>26</sup>-operation determination to the developer, and no register exists or can be built</span><span class="led-when">indefinite</span></div>
+<div class="led-row"><span>What went wrong inside a lab</span><span>SB 53 exempts incident reports from public-records requests; anonymised summaries are not due before January 2027</span><span class="led-when">Jan 2027</span></div>
+</div>
+<figcaption>Four mechanisms, each arriving for its own reasons, compounding into one result: <b>less about the frontier can be checked from outside each year, while the claims made about it grow louder.</b></figcaption>
+</figure>
+<p>Meanwhile, California's Senate Bill 53 — the most substantial artificial-intelligence statute in the country — defines a "frontier developer" as one training above 10²⁶ operations, and leaves that determination to the developer. There is no public register of which models cross the line, and none can be built. The law's incident reports are exempt from public-records requests, with anonymized summaries not due until January 2027.</p>
+<p>The effect compounds. Confident claims about which American lab is ahead rest on comparing a deliberately safeguarded model against an unconstrained rival, using aggregator scores that contradict each other — Fable 5.1's score on one industry index was reported as both first and third place by different sources six days apart.</p>
+<p>That quietly destroys the most popular cynical explanation of the whole affair. The clever reading of Amodei's essay is that a pacing regime freezes the board in favor of whoever currently leads, so the call should have come from the leader. Running that test requires knowing who leads. Nobody outside either building does, and the release policies are designed so that nobody will. The observation that the "wrong" man wrote the essay carries no evidential weight at all, because it would look identical in either world.</p>
+<h2>What actually costs something</h2>
+<p>If motives can't be read from essays, they can sometimes be read from bills.</p>
+<p>In early 2026 the Pentagon sought to renegotiate its contract with Anthropic to permit use of Claude "for all lawful purposes" — dropping the company's red lines against mass domestic surveillance and autonomous weapons targeting. Anthropic refused. The administration directed every federal agency to phase the company out, and the Defense Secretary designated it a "supply chain risk," a label never before applied to an American firm. OpenAI took a comparable contract with softer, self-amendable protections.</p>
+<p>In August, a federal judge ruled the designation unlawful on three grounds at once, finding the government had acted "based on a desire to make a public example." A second suit continues.</p>
+<p>That episode is the single most useful fact in this story, because it is the only one where a party paid a real price for a position. Essays are free. Agreeing with an essay is free. Absorbing an unprecedented federal blacklist rather than dropping a contractual red line is not free, and it happened.</p>
+<p>It also suggests the right question. "Is Amodei sincere?" cannot be answered from public evidence and probably never will be. "Under what conditions does a firm give up money when nothing forces it to?" is answerable, because it is about conduct. The Pentagon refusal is one entry. The discipline worth keeping is to collect more of them, and to stop treating stated motives as data.</p>
+<p>Applied evenly, that discipline is unkind to everyone. Amodei's proposal happens to formalize compliance infrastructure Anthropic already built and its rivals mostly have not. Liu's argument concludes that the correct policy is exactly what his employer already does, and exactly what keeps his own threatened craft meaningful. Neither observation makes either man insincere. Sincere and self-serving have never been mutually exclusive.</p>
+<h2>The money runs in both directions</h2>
+<p>The political economy is usually described as tech money flowing toward the president. It does. Federal Election Commission records show that OpenAI co-founder Greg Brockman and his wife Anna gave $50 million on a single day in September 2025 — four contributions of $12.5 million each, half to the president's super political action committee and half to the industry's deregulation network. Media and technology companies have paid Trump roughly $90 million in lawsuit settlements as announced, most of it routed to his presidential library foundation.</p>
+<p>What gets less attention is the flow in the opposite direction, and Senator Jon Ossoff laid it out in a four-step sequence at a rally in Athens, Georgia on September 13. On day one of the administration, the Biden executive order guarding against catastrophic AI risks was rescinded. Donald Trump Jr.'s venture firm, 1789 Capital, took positions in data centers and AI labs — its portfolio includes a data-center operator and a chip designer, and its assets under management grew from roughly $200 million to $3.5 billion in a year. Four days before the inauguration, a group led by the United Arab Emirates' national security adviser committed $500 million to the Trump family's crypto venture; the president's own financial disclosure indicates the arrangement has since directed $263 million to family entities. Four months later, the administration signed the framework granting the Emirates the right to buy up to half a million advanced Nvidia chips a year.</p>
+<p>Each step checks out against the public record, with one correction worth making: the framework granting purchase rights came in May 2025, but the export licenses themselves arrived months afterward.</p>
+<p>The structural point survives the correction. A president whose family holds positions in an industry has a reason not to regulate it that owes nothing to lobbying, tribute, or capture. That reason runs from Washington toward the industry rather than the other way, and the standard account of tech money flowing to the president leaves it out entirely.</p>
+<h2>What a functioning response would look like</h2>
+<p>At the same rally Ossoff set out a standard, and its construction is the substance of it. He does not say what he would do. He says what the offices would do if the people in them were equal to them.</p>
+<p>"A capable president," in his formulation, "would move swiftly to secure and reassure the American people, rush inspectors into frontier labs, fortify the nation against bioterrorism, demand legislation from Congress, and lead the world toward an AI treaty." A capable Congress "would engage every committee in investigation and legislation to act swiftly and wisely," and the relevant chief executives "would be under oath next week." Only then the measurement: "But instead the president and the speaker of the house sit on their hands and hope for the best."</p>
+<p>Read as a job description, that assigns six duties to the executive and three to the legislature, and holds both to the same twin standard — swiftly <em>and</em> wisely. Elsewhere he names the two components directly, describing what he hopes to tell his daughter her parents' generation did: that "we elected those who understood the moment and had the will to meet it." Comprehension and will are exactly the two things his critique says are missing, from an establishment "barely capable of email" and a president whose family holds positions in the industry.</p>
+<p>The answer came quickly. Trump posted that the AI crisis was a "hoax being perpetrated by the radical left Democrats," comparing it to climate change. The Senate majority leader said Congress should take a "light touch" with AI companies. The Speaker said the industry could "self-regulate" and did not need government "to tell them to slow it down." That week was the House's last scheduled sitting before the midterms, which closed the legislative window for the year.</p>
+<p>Two days later, several hundred people met in Washington under a banner that fits no partisan axis at all. Bernie Sanders and Steve Bannon shared a stage demanding binding limits on AI, which does not survive the "radical left Democrats" framing. Their prescriptions have almost nothing in common. But the president of the American Federation of Labor and Congress of Industrial Organizations was on that stage, alongside the head of the American Federation of Teachers and the executive director of the screen actors' union. Organized labor has entered this argument, and entered it on displacement rather than extinction. That is a different fight, with a far larger constituency than the one the laboratories have been having with themselves.</p>
+<h2>What to watch</h2>
+<p>Strip the week down and four things hold.</p>
+<p>The loudest calls for restraint came from the firms setting the pace, in the same weeks they pursued the largest public offerings in history, from a government that rejects restraint while collecting money from the industry it regulates. Nobody in the story is a neutral party to their own regulation, and that is the only frame that fits all the conduct at once.</p>
+<p>The chokepoint that makes any of this governable is tightening on the creation side and eroding on the diffusion side, and every proposal on the table addresses the half that is tightening. Compute concentration makes inspections feasible. Open weights and distillation make containment nearly impossible. Amodei's package is well matched to the easy half.</p>
+<p>The measurable facts are becoming scarcer while the claims get louder. Release policy, self-assessed compute thresholds, and sealed incident reports mean the most important questions — who is actually ahead, what actually went wrong inside a lab — are now structurally unanswerable from outside.</p>
+<p>And the argument that matters is not the one being had. Concentration versus diffusion is the axis that explains why a senator, a chief executive, and a Chinese kernel engineer can all invoke safety and demand incompatible things. Ossoff named five duties for a functioning government: inspectors, testimony, biosecurity, legislation, a treaty. As of this writing, none of the five has happened, and Congress has gone home.</p>
+</article>
+</div>
