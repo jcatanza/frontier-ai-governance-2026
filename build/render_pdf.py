@@ -1,7 +1,9 @@
 """Render both editions to PDF, and the LinkedIn cover, via headless Chrome."""
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
 import io, os, re, subprocess
-H = os.path.expanduser("~/build-ai-gov/")
-FONTS = io.open(H + "fonts.css", encoding="utf-8").read()
+FONTS = io.open(paths.FONTS_CSS, encoding="utf-8").read()
+os.makedirs(paths.SCRATCH, exist_ok=True)
 
 PRINT_CSS = """<style>
 @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
@@ -23,22 +25,22 @@ a{color:inherit;text-decoration:none;}
 def chrome(html, out, extra=()):
     if os.path.exists(out): os.remove(out)
     subprocess.run(["google-chrome","--headless=new","--disable-gpu","--no-sandbox",
-        "--user-data-dir=/tmp/cr2/udr","--crash-dumps-dir=/tmp/cr2",
+        f"--user-data-dir={paths.SCRATCH}/ud","--crash-dumps-dir="+paths.SCRATCH,
         "--virtual-time-budget=40000", *extra, "file://"+html],
         capture_output=True, timeout=300)
     return os.path.exists(out)
 
 def pdf(src, out_pdf):
-    frag = io.open(H+src, encoding="utf-8").read()
+    frag = io.open(src, encoding="utf-8").read()
     frag = re.sub(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com[^>]*>',
                   "<style>"+FONTS+"</style>", frag)
     doc = ('<!doctype html>\n<html lang="en" data-theme="light">\n<head>\n<meta charset="utf-8">\n'
            + PRINT_CSS + "</head>\n<body>\n" + frag + "\n</body>\n</html>\n")
-    p = H + out_pdf.replace(".pdf", ".print.html")
+    p = os.path.join(paths.SCRATCH, os.path.basename(out_pdf).replace(".pdf", ".print.html"))
     io.open(p, "w", encoding="utf-8").write(doc)
-    ok = chrome(p, H+out_pdf, ["--no-pdf-header-footer", f"--print-to-pdf={H+out_pdf}"])
+    ok = chrome(p, out_pdf, ["--no-pdf-header-footer", f"--print-to-pdf={out_pdf}"])
     if ok:
-        d = open(H+out_pdf,"rb").read()
+        d = open(out_pdf,"rb").read()
         fonts = sorted({m.decode('latin1').split('+')[-1]
                         for m in re.findall(rb'/BaseFont\s*/([^\s/\]>]+)', d)})
         print(f"  {out_pdf}: {len(re.findall(rb'/Type\s*/Page[^s]', d))} pages, "
@@ -46,5 +48,5 @@ def pdf(src, out_pdf):
     else:
         print(f"  {out_pdf}: FAILED")
 
-pdf("illustrated-rev4.html", "frontier-ai-governance-september-2026.pdf")
-pdf("essay.html", "everyone-is-arguing-about-the-wrong-thing.pdf")
+pdf(paths.HTML_REPORT, paths.PDF_REPORT)
+pdf(paths.HTML_ESSAY, paths.PDF_ESSAY)

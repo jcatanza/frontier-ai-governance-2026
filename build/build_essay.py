@@ -5,13 +5,14 @@ cleaned. This one lives in the repo. Shared assets (stylesheet, the lorries and
 timeline plates) are lifted from the report's published HTML so the two editions
 cannot drift apart.
 """
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
 import io, re, sys
-sys.path.insert(0, '/home/jcatanz/build-ai-gov')
 from plates_new import PLATE_INVERSION, PLATE_LEDGER, CHART_CSS
 
-MD = "/home/jcatanz/projects/ai-governance/.claude/worktrees/frontier-ai-governance-rev3-edits-161705/frontier-ai-governance-essay.md"
-REPORT_HTML = "/home/jcatanz/build-ai-gov/illustrated-rev4.html"
-OUT = "/home/jcatanz/build-ai-gov/essay.html"
+MD = paths.MD_ESSAY
+REPORT_HTML = paths.HTML_REPORT
+OUT = paths.HTML_ESSAY
 
 rep = io.open(REPORT_HTML, encoding="utf-8").read()
 base_css = next(b for b in re.findall(r"<style>.*?</style>", rep, re.S) if "--ink:" in b)

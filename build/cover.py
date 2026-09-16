@@ -1,8 +1,9 @@
 """LinkedIn cover, built to their exact 1920x1080 so nothing is cropped."""
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
 import io, os, re, subprocess
-H = os.path.expanduser("~/build-ai-gov/")
-FONTS = io.open(H + "fonts.css", encoding="utf-8").read()
-rep = io.open(H + "illustrated-rev4.html", encoding="utf-8").read()
+FONTS = io.open(paths.FONTS_CSS, encoding="utf-8").read()
+rep = io.open(paths.HTML_REPORT, encoding="utf-8").read()
 svg = re.search(r'<svg viewBox="0 0 820 260".*?</svg>', rep, re.S).group(0)
 
 HTML = """<!doctype html><html data-theme="light"><head><meta charset="utf-8">
@@ -45,12 +46,12 @@ HTML = """<!doctype html><html data-theme="light"><head><meta charset="utf-8">
 </div>
 </body></html>"""
 
-p = H + "figures/cover.html"
+p = os.path.join(paths.SCRATCH, "cover.html")
 io.open(p, "w", encoding="utf-8").write(HTML.replace("@@FONTS@@", FONTS).replace("@@SVG@@", svg))
-out = H + "figures/linkedin-cover-1920x1080.png"
+out = os.path.join(paths.FIG_DIR, "linkedin-cover-1920x1080.png")
 if os.path.exists(out): os.remove(out)
 subprocess.run(["google-chrome","--headless=new","--disable-gpu","--no-sandbox",
-    "--user-data-dir=/tmp/cr2/udc","--crash-dumps-dir=/tmp/cr2","--virtual-time-budget=30000",
+    f"--user-data-dir={paths.SCRATCH}/udc","--crash-dumps-dir="+paths.SCRATCH,"--virtual-time-budget=30000",
     "--force-device-scale-factor=1","--window-size=1920,1080",
     "--default-background-color=FFFFFFFF",f"--screenshot={out}","file://"+p],
     capture_output=True, timeout=200)

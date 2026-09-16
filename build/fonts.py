@@ -6,9 +6,11 @@ serif, so Fraunces and Newsreader have to be instanced with EVERY axis pinned
 reachable from Chrome in this sandbox either, so the faces are embedded as data
 URIs rather than linked.
 """
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
 import base64, io, os, re, subprocess
 
-W = os.path.expanduser("~/build-ai-gov/fontwork/")
+W = paths.FONTWORK + "/"
 os.makedirs(W, exist_ok=True)
 B = "https://raw.githubusercontent.com/google/fonts/main/ofl"
 SRC = {
@@ -57,7 +59,7 @@ def build():
             b64 = base64.b64encode(open(f, "rb").read()).decode()
             css = css.replace(u, f"data:font/woff2;base64,{b64}")
     out = "\n".join(faces) + "\n" + css
-    io.open(os.path.expanduser("~/build-ai-gov/fonts.css"), "w", encoding="utf-8").write(out)
+    io.open(paths.FONTS_CSS, "w", encoding="utf-8").write(out)
     print(f"  fonts.css: {len(out)/1024:.0f} KB, {out.count('@font-face')} faces")
     return out
 

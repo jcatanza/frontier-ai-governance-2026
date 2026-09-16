@@ -1,6 +1,8 @@
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
 import io, os, re, subprocess
-H = "/home/jcatanz/build-ai-gov/essay.html"
-OUT = "/home/jcatanz/build-ai-gov/figures/"
+H = paths.HTML_ESSAY
+OUT = paths.FIG_DIR + "/"
 os.makedirs(OUT, exist_ok=True)
 s = io.open(H, encoding="utf-8").read()
 css = "\n".join(re.findall(r"<style>.*?</style>", s, re.S))
@@ -35,7 +37,7 @@ for i, fig in enumerate(figs, 1):
     png = OUT + f"figure-{i}.png"
     if os.path.exists(png): os.remove(png)
     subprocess.run(["google-chrome","--headless=new","--disable-gpu","--no-sandbox",
-        "--user-data-dir=/tmp/cr2/udf","--crash-dumps-dir=/tmp/cr2","--virtual-time-budget=25000",
+        f"--user-data-dir={paths.SCRATCH}/udf","--crash-dumps-dir="+paths.SCRATCH,"--virtual-time-budget=25000",
         "--force-device-scale-factor=2","--window-size=1200,1000",
         "--default-background-color=FFFFFFFF",f"--screenshot={png}","file://"+p],
         capture_output=True, timeout=180)

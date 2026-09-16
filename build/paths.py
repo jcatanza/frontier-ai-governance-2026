@@ -1,0 +1,17 @@
+"""Every path the build uses, relative to the repo root. Nothing points outside."""
+import os
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BUILD = os.path.join(ROOT, "build")
+MD_ESSAY = os.path.join(ROOT, "everyone-is-arguing-about-the-wrong-thing.md")
+MD_REPORT = os.path.join(ROOT, "frontier-ai-governance-september-2026.md")
+HTML_DIR = os.path.join(ROOT, "html")
+HTML_ESSAY = os.path.join(HTML_DIR, "everyone-is-arguing-about-the-wrong-thing.html")
+HTML_REPORT = os.path.join(HTML_DIR, "frontier-ai-governance-september-2026.html")
+FIG_DIR = os.path.join(ROOT, "figures")
+PDF_REPORT = os.path.join(ROOT, "frontier-ai-governance-september-2026.pdf")
+PDF_ESSAY = os.path.join(ROOT, "everyone-is-arguing-about-the-wrong-thing.pdf")
+BLOCKS = os.path.join(BUILD, "report_blocks.json")
+OVERRIDES = os.path.join(BUILD, "anchor_overrides.json")
+FONTS_CSS = os.path.join(BUILD, "fonts.css")
+FONTWORK = os.path.join(BUILD, "fontwork")
+SCRATCH = os.path.join(BUILD, ".scratch")

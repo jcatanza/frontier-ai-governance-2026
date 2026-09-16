@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+build/.scratch/
+build/fontwork/
+build/fonts.css
