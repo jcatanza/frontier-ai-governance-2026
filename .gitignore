@@ -3,3 +3,5 @@ Thumbs.db
 build/.scratch/
 build/fontwork/
 build/fonts.css
+__pycache__/
+*.pyc

@@ -99,7 +99,7 @@ LEDGER = [
      "SB 53 leaves the 10<sup>26</sup>-operation determination to the developer, and no register exists or can be built",
      "indefinite"),
     ("What went wrong inside a lab",
-     "SB 53 exempts incident reports from public-records requests; anonymised summaries are not due before January 2027",
+     "SB 53 exempts incident reports from public-records requests; anonymized summaries are not due before January 2027",
      "Jan 2027"),
 ]
 

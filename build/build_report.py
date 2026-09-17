@@ -87,13 +87,17 @@ def build(md_path=MD, out_path=OUT, anchor_overrides=None):
 
 if __name__ == "__main__":
     ov = json.load(io.open(paths.OVERRIDES, encoding="utf-8")) if os.path.exists(paths.OVERRIDES) else None
+    # Capture the previously published HTML BEFORE building: build() overwrites OUT,
+    # so reading it afterwards compares the new file with itself and always passes.
+    ref = io.open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else None
     html, nblocks, nnotes, ninj = build(anchor_overrides=ov)
     print(f"built: {nblocks} blocks, {nnotes} notes, {ninj} injections")
-    ref = io.open(OUT, encoding="utf-8").read()
     norm = lambda s: re.sub(r"\s+", " ", s).strip()
-    a, b = norm(ref), norm(html)
-    if a == b:
-        print("VALIDATION: rebuilt HTML is identical to the published HTML")
+    a, b = (norm(ref) if ref is not None else None), norm(html)
+    if ref is None:
+        print("VALIDATION: no previously published HTML to compare against")
+    elif a == b:
+        print("VALIDATION: rebuilt HTML is identical to the previously published HTML")
     else:
         import difflib
         sa, sb = re.split(r"(?<=>)", a), re.split(r"(?<=>)", b)

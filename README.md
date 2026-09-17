@@ -64,7 +64,7 @@ and confirmed a $50,000 contribution the report would otherwise have reported
 only on a watchdog's word.
 
 Several claims changed under checking rather than being confirmed by it. A
-widely repeated quotation turned out to be an outlet's characterisation and not
+widely repeated quotation turned out to be an outlet's characterization and not
 the speaker's words. A benchmark placement being used as evidence about
 open-weight models turned out to describe a model whose weights had not been
 released. Those corrections are in the text, with notes warning anyone
@@ -87,6 +87,6 @@ Written to the state of the record on 16 September 2026. The week it describes
 closed with Congress rising for the midterms; nothing in it has been updated for
 events after that date.
 
-## Licence
+## License
 
 Text © Joseph Catanzarite. Please link rather than republish in full.
