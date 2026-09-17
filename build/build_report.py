@@ -39,7 +39,7 @@ def build(md_path=MD, out_path=OUT, anchor_overrides=None):
         if p.startswith("# "):     title = p[2:].strip(); continue
         if p.startswith("### "):   sub = p[4:].strip(); continue
         if p.startswith("**Joseph"): byline = inline(p).replace("<strong>", "<b>").replace("</strong>", "</b>"); continue
-        if p.startswith("*A note on how to read this"):
+        if not revnote and p.startswith("*") and not p.startswith("**"):   # the italic reading note under the byline
             revnote = inline(p.strip("*")); body.append(f"<p><em>{revnote}</em></p>"); continue
         m = re.match(r"^\*\*(PART [A-Z]+ — [^*]+)\*\*$", p)
         if m: body.append(f'<p class="movement mono cap">{m.group(1)}</p>'); continue
