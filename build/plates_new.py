@@ -83,8 +83,8 @@ PLATE_INVERSION = (
     + "\n".join(_row(p, s) for p, s in POLICIES) +
     '\n<p class="inv-note">Liu has never stated a position on SB 53\'s compute threshold, '
     'so it is left off rather than inferred.</p>\n'
-    '</div>\n<figcaption>Five policies, two men, both arguing from safety. On four of them '
-    'Amodei supports what Liu opposes; on open weights the poles simply swap. '
+    '</div>\n<figcaption>Two men, both arguing from safety, split on five policies: on four of them '
+    'Amodei supports what Liu opposes, and on open weights the poles simply swap. '
     '<b>The middle of this chart is empty.</b></figcaption>\n</figure>'
 )
 
@@ -112,7 +112,7 @@ PLATE_LEDGER = (
     + "\n".join(
         f'<div class="led-row"><span>{a}</span><span>{b}</span>'
         f'<span class="led-when">{c}</span></div>' for a, b, c in LEDGER) +
-    '\n</div>\n<figcaption>Four mechanisms, each arriving for its own reasons, compounding into one '
+    '\n</div>\n<figcaption>Four mechanisms, each arriving for its own reasons, compound into one '
     'result: <b>less about the frontier can be checked from outside each year, while the claims '
     'made about it grow louder.</b></figcaption>\n</figure>'
 )
