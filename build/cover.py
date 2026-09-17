@@ -41,7 +41,7 @@ HTML = """<!doctype html><html data-theme="light"><head><meta charset="utf-8">
   <div class="art">@@SVG@@</div>
 </div>
 <div class="foot">
-  <p class="byline"><b>Joseph Catanzarite</b> &middot; with Claude Opus 5 as research partner</p>
+  <p class="byline"><b>Joseph Catanzarite</b> &middot; with Claude as research and editorial partner</p>
   <p class="where">An essay, and a report</p>
 </div>
 </body></html>"""
